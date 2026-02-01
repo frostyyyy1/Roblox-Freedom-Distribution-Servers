@@ -1,0 +1,64 @@
+name: ip testing thing
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: check ips
+        run: |
+          echo "# Status Test" > README.md
+          echo "" >> README.md
+          echo "Last check: $(date -u)" >> README.md
+          echo "" >> README.md
+
+          echo "## Online" >> README.md
+          online=false
+
+          while read -r host; do
+            [ -z "$host" ] && continue
+
+            if ping -c 1 -W 2 "$host" > /dev/null; then
+              echo "- $host" >> README.md
+              online=true
+            fi
+          done < ips.list
+
+          if [ "$online" = false ]; then
+            echo "None" >> README.md
+          fi
+
+          echo "" >> README.md
+          echo "## Offline / Unreachable" >> README.md
+          offline=false
+
+          while read -r host; do
+            [ -z "$host" ] && continue
+
+            if ! ping -c 1 -W 2 "$host" > /dev/null; then
+              echo "- $host" >> README.md
+              offline=true
+            fi
+          done < ips.list
+
+          if [ "$offline" = false ]; then
+            echo "None" >> README.md
+          fi
+
+      - name: commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add README.md
+          git commit -m "update status" || echo "no changes"
+          git push
