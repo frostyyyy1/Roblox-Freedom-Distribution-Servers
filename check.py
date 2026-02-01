@@ -33,7 +33,7 @@ with open("ips.list", "r", encoding="utf-8") as f:
 
         meta_info = ""
         if meta:
-            meta_info = f"\n  RCC endpoints: {meta[0].replace('rcc=', '')}"
+            meta_info = f" (RCC endpoints: {meta[0].replace('rcc=', '')})"
         try:
             check_server(host, port)
             online.append(f"- {host}:{port}{meta_info}")
