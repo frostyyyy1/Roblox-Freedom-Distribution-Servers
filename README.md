@@ -1,14 +1,15 @@
 Roblox-Freedom-Distribution Server List thing.
 <!-- STATUS-START -->
 ## Status Test
-Last check: 2026-02-01 20:01:36 UTC
+Last check: 2026-02-01 20:53:15 UTC
 
 ### Online
-- frostdev.cloud:57322 (RCC endpoints: 55000,55001)
-- 79.208.64.176:57322
+- None
 
 ### Offline / Unreachable
-- None
+- frostdev.cloud:2005
+- 79.208.64.176:2005
+- 172.88.194.43:2005
 <!-- STATUS-END -->
 
 ## What is this?
