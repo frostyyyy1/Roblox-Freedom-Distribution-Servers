@@ -1,4 +1,12 @@
-Roblox-Freedom-Distribution Server List thing.
+<h2 align="center">
+  <img src="https://github.com/Windows81/Roblox-Freedom-Distribution/blob/main/Assets/Logo.png" height="20px"/>
+  <a href="https://github.com/Windows81/Roblox-Freedom-Distribution">
+    Roblox-Freedom-Distribution
+  </a>
+  Server List.
+  <img src="https://github.com/Windows81/Roblox-Freedom-Distribution/blob/main/Assets/Logo.png" height="20px"/>
+</h2>
+
 <!-- STATUS-START -->
 ## Status Test
 Last check: 2026-02-01 21:11:26 UTC
