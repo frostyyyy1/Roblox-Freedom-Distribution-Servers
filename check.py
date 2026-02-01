@@ -22,9 +22,12 @@ def parse_meta(meta_raw):
     meta = {}
     if not meta_raw:
         return meta
-    parts = re.findall(r'(\w+)=(".*?"|[^|]+)', meta_raw)
-    for key, val in parts:
-        meta[key] = val.strip('"')
+
+    for part in meta_raw.split("|"):
+        if "=" not in part:
+            continue
+        key, val = part.split("=", 1)
+        meta[key.strip()] = val.strip().strip('"')
     return meta
 
 def process_line(raw):
