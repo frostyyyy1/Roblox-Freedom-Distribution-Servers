@@ -9,14 +9,13 @@
 
 <!-- STATUS-START -->
 ## Status Test
-Last check: 2026-02-01 21:11:26 UTC
+Last check: 2026-02-01 21:29:18 UTC
 
 ### Online
-- None
-
-### Offline / Unreachable
 - frostdev.cloud:2005
 - 79.208.64.176:2005
+
+### Offline / Unreachable
 - 172.88.194.43:2005
 <!-- STATUS-END -->
 
