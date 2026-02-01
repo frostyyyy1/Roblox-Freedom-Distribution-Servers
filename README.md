@@ -9,14 +9,14 @@
 
 <!-- STATUS-START -->
 ## Status Test
-Last check: 2026-02-01 23:24:21 UTC
+Last check: 2026-02-01 23:28:18 UTC
 
 ### Online
 - 172.88.194.43:2005
 
 ### Offline / Unreachable
-- 79.208.64.176:2005
 - 79.208.64.176:80 -RCC Services 55000,55001,55002
+- 79.208.64.177:2005
 - frostdev.cloud:2005
 <!-- STATUS-END -->
 
