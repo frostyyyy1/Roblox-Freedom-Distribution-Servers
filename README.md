@@ -9,14 +9,16 @@
 
 <!-- STATUS-START -->
 ## Status Test
-Last check: 2026-02-01 22:57:01 UTC
+Last check: 2026-02-01 23:19:15 UTC
 
 ### Online
 - 172.88.194.43:2005
 
 ### Offline / Unreachable
-- frostdev.cloud:2005
 - 79.208.64.176:2005
+- 79.208.64.176:80
+- 79.208.64.176:80 -RCC Services 55000,55001,55002
+- frostdev.cloud:2005
 <!-- STATUS-END -->
 
 ## What is this?
