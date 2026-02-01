@@ -9,15 +9,14 @@
 
 <!-- STATUS-START -->
 ## Status Test
-Last check: 2026-02-01 21:46:22 UTC
+Last check: 2026-02-01 21:58:34 UTC
 
 ### Online
-- frostdev.cloud:2005
-- 79.208.64.176:2005
 - 172.88.194.43:2005
 
 ### Offline / Unreachable
-- None
+- frostdev.cloud:2005
+- 79.208.64.176:2005
 <!-- STATUS-END -->
 
 ## What is this?
