@@ -2,6 +2,7 @@ import urllib.request
 import socket
 import ssl
 from datetime import datetime
+import re
 
 socket.setdefaulttimeout(5)
 
@@ -12,28 +13,33 @@ ctx.verify_mode = ssl.CERT_NONE
 online = []
 offline = []
 
-with open("ips.list") as f:
-    for line in f:
-        line = line.strip()
-        if not line:
+def check_server(host, port):
+    url = f"https://{host}:{port}"
+    req = urllib.request.Request(
+        url,
+        method="GET",
+        headers={"User-Agent": "RFD-status-checker"}
+    )
+    urllib.request.urlopen(req, context=ctx)
+
+with open("ips.list", "r", encoding="utf-8") as f:
+    for raw in f:
+        raw = raw.strip()
+        if not raw:
             continue
 
-        if not line.startswith("http://") and not line.startswith("https://"):
-            url = "https://" + line
-        else:
-            url = line
+        entry, *meta = raw.split("|")
+        host, port = entry.split(":")
 
+        meta_info = ""
+        if meta:
+            meta_info = f"\n  RCC endpoints: {meta[0].replace('rcc=', '')}"
         try:
-            req = urllib.request.Request(
-                url,
-                method="GET",
-                headers={"User-Agent": "status-checker"}
-            )
-            urllib.request.urlopen(req, context=ctx)
-            online.append(line)
-        except Exception as e:
-            offline.append(line)
-                
+            check_server(host, port)
+            online.append(f"- {host}:{port}{meta_info}")
+        except Exception:
+            offline.append(f"- {host}:{port}")
+
 now = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
 
 START = "<!-- STATUS-START -->"
@@ -42,23 +48,28 @@ END = "<!-- STATUS-END -->"
 with open("README.md", "r", encoding="utf-8") as f:
     content = f.read()
 
-status = []
-status.append("## Status Test")
-status.append(f"Last check: {now}\n")
+status = [
+    "## Status Test",
+    f"Last check: {now}",
+    "",
+    "### Online",
+]
 
-status.append("### Online")
-status.extend(f"- {h}" for h in online or ["None"])
+status.extend(online if online else ["- None"])
 
-status.append("\n### Offline / Unreachable")
-status.extend(f"- {h}" for h in offline or ["None"])
+status += [
+    "",
+    "### Offline / Unreachable",
+]
 
-new_block = START + "\n" + "\n".join(status) + "\n" + END
+status.extend(offline if offline else ["- None"])
 
-import re
+new_block = f"{START}\n" + "\n".join(status) + f"\n{END}"
+
 content = re.sub(
     f"{START}[\\s\\S]*?{END}",
     new_block,
-    content
+    content,
 )
 
 with open("README.md", "w", encoding="utf-8") as f:
