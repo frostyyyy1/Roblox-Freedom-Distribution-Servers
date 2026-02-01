@@ -1,7 +1,7 @@
 Roblox-Freedom-Distribution Server List thing.
 <!-- STATUS-START -->
 ## Status Test
-Last check: 2026-02-01 17:14:16 UTC
+Last check: 2026-02-01 18:16:28 UTC
 
 ### Online
 - frostdev.cloud:57322 (RCC endpoints: 55000,55001)
