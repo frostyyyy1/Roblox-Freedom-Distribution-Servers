@@ -45,7 +45,7 @@ def process_line(raw):
     if "note" in meta:
         suffix.append(f"Notes: {meta['note']}")
 
-    suffix_text = f" -{' | '.join(suffix)}" if suffix else ""
+    suffix_text = f" | {' | '.join(suffix)}" if suffix else ""
     label = f"- {host}:{port}{suffix_text}"
 
     try:
