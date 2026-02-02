@@ -8,7 +8,7 @@
 </h2>
 
 <!-- STATUS-START -->
-## Status Test
+## Status Test 
 Last check: 2026-02-02 00:37:55 UTC
 
 ### Online
@@ -18,6 +18,8 @@ Last check: 2026-02-02 00:37:55 UTC
 - 79.208.64.177:2005
 - frostdev.cloud:2005
 <!-- STATUS-END -->
+
+[![Status Check](https://github.com/frostyyyy1/Roblox-Freedom-Distribution-Servers/actions/workflows/main.yml/badge.svg?event=workflow_dispatch)](https://github.com/frostyyyy1/Roblox-Freedom-Distribution-Servers/actions/workflows/main.yml)
 
 ## What is this?
 
