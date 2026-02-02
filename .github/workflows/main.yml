@@ -19,6 +19,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Cron heartbeat
+        run: echo "Cron fired at $(date)"
+
       - name: Run status check
         run: |
           chmod +x check.sh
