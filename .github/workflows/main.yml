@@ -21,8 +21,8 @@ jobs:
 
       - name: Run status check
         run: |
-          chmod +x status_check.sh
-          ./status_check.sh
+          chmod +x check.sh
+          ./check.sh
 
       - name: Commit & push if changed
         run: |
