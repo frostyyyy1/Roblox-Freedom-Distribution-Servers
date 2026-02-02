@@ -63,8 +63,7 @@ To add a server to this list, please open an issue with the following informatio
 - RCC service ports (if applicable)
 - Any additional notes
 
-Once submitted, the server will be checked and added to the list.
-
+When creating an issue, please use the “add a server” tag. Once submitted, the server will be added to the list.
   
 ## More Information
 
