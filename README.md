@@ -63,7 +63,9 @@ To add a server to this list, please open an issue with the following informatio
 - RCC service ports (if applicable)
 - Any additional notes
 
-When creating an issue, please use the “add a server” tag. Once submitted, the server will be added to the list.
+Once submitted, the server will be checked and added to the list.
+
+[Add a Server to the list](https://github.com/frostyyyy1/Roblox-Freedom-Distribution-Servers/issues/new?template=add-a-server.md)
   
 ## More Information
 
