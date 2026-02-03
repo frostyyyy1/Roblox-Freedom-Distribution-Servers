@@ -1,8 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
+cd "$(dirname "$0")"
 set -euo pipefail
 MAX_WORKERS=25
 TIMEOUT=5
-IPS_FILE="ips.list"
+IPS_FILE="server.list"
 README="README.md"
 
 START="<!-- STATUS-START -->"
@@ -10,17 +11,18 @@ END="<!-- STATUS-END -->"
 
 TMP_ONLINE="$(mktemp)"
 TMP_OFFLINE="$(mktemp)"
-trap 'rm -f "$TMP_ONLINE" "$TMP_OFFLINE"' EXIT
+TMP_README="$(mktemp)"
+trap 'rm -f "$TMP_ONLINE" "$TMP_OFFLINE" "$TMP_README"' EXIT
 
 check_server() {
   local host="$1"
   local port="$2"
 
-  curl -k -s --head \
+  curl --insecure --silent --head \
     --connect-timeout "$TIMEOUT" \
     --max-time "$TIMEOUT" \
-    -A "RFD-status-checker" \
-    "https://${host}:${port}" >/dev/null
+    --user-agent "RFD-status-checker" \
+    "https://$host:$port" >/dev/null
 }
 
 parse_and_check() {
@@ -44,30 +46,32 @@ parse_and_check() {
       val="${part#*=}"
       val="${val%\"}"
       val="${val#\"}"
+
+      # Removes excess whitespace.
       key="$(echo "$key" | xargs)"
       val="$(echo "$val" | xargs)"
 
       case "$key" in
-        rcc)  suffix+=" | RCC Services $val" ;;
-        note) suffix+=" | Notes: $val" ;;
+        rcc)  suffix+=" - RCC Services $val" ;;
+        note) suffix+=" - Notes: $val" ;;
       esac
     done
   fi
 
-  label="- ${host}:${port}${suffix}"
-
+  label="- **\`$host:$port\`**$suffix"
   if check_server "$host" "$port"; then
+    echo "ONLINE   $label"
     echo "$label" >> "$TMP_ONLINE"
   else
+    echo "OFFLINE  $label"
     echo "$label" >> "$TMP_OFFLINE"
   fi
 }
 
 export -f check_server parse_and_check
-export TMP_ONLINE TMP_OFFLINE TIMEOUT
+export TMP_ONLINE TMP_OFFLINE TMP_README TIMEOUT
 
-cat "$IPS_FILE" \
-  | xargs -P "$MAX_WORKERS" -I {} bash -c 'parse_and_check "$@"' _ {}
+xargs -a "$IPS_FILE" -P "$MAX_WORKERS" -I {} bash -c 'parse_and_check "$@"' _ {}
 
 NOW="$(date -u '+%Y-%m-%d %H:%M:%S UTC')"
 
@@ -96,6 +100,6 @@ awk -v start="$START" -v end="$END" -v block="$STATUS_BLOCK" '
   $0 ~ start { print block; in_block=1; next }
   $0 ~ end   { in_block=0; next }
   !in_block  { print }
-' "$README" > "${README}.tmp"
+' "$README" > "$TMP_README"
 
-mv "${README}.tmp" "$README"
+mv "$TMP_README" "$README"
