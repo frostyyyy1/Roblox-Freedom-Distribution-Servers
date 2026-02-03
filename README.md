@@ -49,7 +49,7 @@ This is usually intended for single-server setups.
 ./RFD.exe player -h $host -p $port -u $user
 ```
 
-Some servers run **multiple RCC services** behind a single web server.  
+Some servers run **multiple RCC services** behind a single web server.
 In this setup, you must choose which RCC service to connect to by specifying its port.
 
 Use the `--rcc_port`, `--port`, `-rp` flag to select the desired RCC service:
@@ -68,7 +68,7 @@ To add a server to this list, please [open an issue](https://github.com/frostyyy
 - Any additional notes
 
 Once submitted, the server will be checked and added to the list.
-  
+
 ## More Information
 
 For detailed documentation, usage examples, and technical information about Roblox Freedom Distribution, see [the project's README page](https://github.com/Windows81/Roblox-Freedom-Distribution).
