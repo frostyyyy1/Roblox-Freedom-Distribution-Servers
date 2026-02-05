@@ -9,15 +9,14 @@
 
 <!-- STATUS-START -->
 ## Status Test
-Last check: 2026-02-05 11:56:29 UTC
+Last check: 2026-02-05 12:11:01 UTC
 
 ### Online
-- None
+- **`frostdev.cloud:2005`**
 
 ### Offline / Unreachable
 - **`172.88.194.43:2005`**
 - **`79.208.64.177:2005`**
-- **`frostdev.cloud:2005`**
 <!-- STATUS-END -->
 
 [![Status Check](https://github.com/frostyyyy1/Roblox-Freedom-Distribution-Servers/actions/workflows/main.yml/badge.svg?event=workflow_dispatch)](https://github.com/frostyyyy1/Roblox-Freedom-Distribution-Servers/actions/workflows/main.yml)
