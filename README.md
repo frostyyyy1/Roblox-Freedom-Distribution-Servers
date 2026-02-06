@@ -7,6 +7,8 @@
   <img src="https://github.com/Windows81/Roblox-Freedom-Distribution/blob/main/Assets/Logo.png" height="20px"/>
 </h2>
 
+***Note:* for latest data, [navigate here](https://github.com/frostyyyy1/Roblox-Freedom-Distribution-Servers/tree/main).**
+
 <!-- STATUS-START -->
 ## Status Test
 Last check: 2026-02-06 00:00:28 UTC
