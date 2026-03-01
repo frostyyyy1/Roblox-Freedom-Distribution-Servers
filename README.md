@@ -11,10 +11,10 @@
 
 <!-- STATUS-START -->
 ## Status Test
-Last check: 2026-03-01 21:53:20 UTC
+Last check: 2026-03-01 22:08:37 UTC
 
 ### Online
-- None
+- **`rfd.frostdev.cloud:51632`**
 
 ### Offline / Unreachable
 - **`172.88.194.43:2005`**
