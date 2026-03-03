@@ -1,8 +1,8 @@
 #!/bin/bash
 cd "$(dirname "$0")"
 set -euo pipefail
-MAX_WORKERS=25
-TIMEOUT=5
+MAX_WORKERS=10
+TIMEOUT=9
 IPS_FILE="server.list"
 README="README.md"
 
@@ -102,4 +102,6 @@ awk -v start="$START" -v end="$END" -v block="$STATUS_BLOCK" '
   !in_block  { print }
 ' "$README" > "$TMP_README"
 
-mv "$TMP_README" "$README"
+
+cp -f "$TMP_README" "$README"
+rm "$TMP_README"
