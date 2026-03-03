@@ -22,11 +22,7 @@ check_server() {
     --connect-timeout "$TIMEOUT" \
     --max-time "$TIMEOUT" \
     --user-agent "RFD-status-checker" \
-      "https://$host:$port" >/dev/null 2>&1; then
-    return 0
-  else
-    return 1
-  fi
+    "https://$host:$port" >/dev/null
 }
 
 parse_and_check() {
