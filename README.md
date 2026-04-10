@@ -11,15 +11,15 @@
 
 <!-- STATUS-START -->
 ## Status Test
-Last check: 2026-04-10 13:24:04 UTC
+Last check: 2026-04-10 14:36:19 UTC
 
 ### Online
 - **`bachelor-subsonic.with.playit.plus:25607`** - Notes: Game is Piggy But With Book 2 Maps
+- **`rfd.frostdev.cloud:51632`**
 
 ### Offline / Unreachable
 - **`79.208.64.177:2005`**
 - **`frostdev.cloud:2005`**
-- **`rfd.frostdev.cloud:51632`**
 - **`visualplugin67.eu.cc:2005`**
 <!-- STATUS-END -->
 
