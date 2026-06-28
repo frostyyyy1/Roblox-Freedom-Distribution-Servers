@@ -11,17 +11,16 @@
 
 <!-- STATUS-START -->
 ## Status Test
-Last check: 2026-06-28 01:52:11 UTC
+Last check: 2026-06-28 06:22:26 UTC
 
 ### Online
-- None
+- **`visualplugin67.eu.cc:2005`**
 
 ### Offline / Unreachable
 - **`79.208.64.177:2005`**
 - **`bachelor-subsonic.with.playit.plus:25607`** - Notes: Game is Piggy But With Book 2 Maps
 - **`frostdev.cloud:2005`**
 - **`rfd.frostdev.cloud:51632`**
-- **`visualplugin67.eu.cc:2005`**
 <!-- STATUS-END -->
 
 [![Status Check](https://github.com/frostyyyy1/Roblox-Freedom-Distribution-Servers/actions/workflows/main.yml/badge.svg?event=workflow_dispatch)](https://github.com/frostyyyy1/Roblox-Freedom-Distribution-Servers/actions/workflows/main.yml)
